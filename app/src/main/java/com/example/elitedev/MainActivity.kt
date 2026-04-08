@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -41,8 +42,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
-import com.example.elitedev.ui.theme.components.FloatTopBar
+import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.screens.CoinsScreen
+import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -86,7 +88,16 @@ fun MainScreen(navController: NavHostController) {
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        containerColor = Color.Black
+        containerColor = Color.Black,
+
+        bottomBar = {
+            BottomNavbar(
+                select = tab,
+                onSelect = {tab = it}
+            )
+        }
+
+        // before innerPadding import bottomNavbar component
     ) { innerPadding ->
 
         Box(
@@ -109,14 +120,16 @@ fun MainScreen(navController: NavHostController) {
                             KrakenBannerPhoto()
                             Banner(text = "Beyond crypto. Trade global assets with USDT.")
                             AboutKraken(text = "Kraken is crypto top-notch platform")
+                            Spacer(modifier = Modifier.padding(16.dp))
+                            BlackFullWidthButton(
+                                text = "Get Started",
+                                onClick = {
+                                    tab = "coins"
+                                }
+                            )
                         }
 
-                        BlackFullWidthButton(
-                            text = "Get Started",
-                            onClick = {
-                                tab = "coins"
-                            }
-                        )
+
                     }
                 }
 
@@ -125,10 +138,7 @@ fun MainScreen(navController: NavHostController) {
                 }
             }
 
-            FloatTopBar(
-                currentTab = tab,
-                onTabChange = { tab = it },
-            )
+
         }
     }
 }
