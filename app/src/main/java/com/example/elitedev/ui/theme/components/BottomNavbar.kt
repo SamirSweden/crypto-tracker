@@ -20,7 +20,7 @@ fun BottomNavbar(
         modifier = Modifier.
             fillMaxWidth()
             .background(Color.Black)
-            .padding(12.dp),
+            .padding(horizontal = 12.dp , vertical = 18.dp),
         horizontalArrangement = Arrangement.SpaceAround // вертикально как в css space-around
     ) {
         BottomItem("Home",select == "home"){
