@@ -11,6 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 
+
+
 @Composable
 fun BottomNavbar(
     select: String,
@@ -21,13 +23,18 @@ fun BottomNavbar(
             fillMaxWidth()
             .background(Color.Black)
             .padding(horizontal = 12.dp , vertical = 18.dp),
-        horizontalArrangement = Arrangement.SpaceAround // вертикально как в css space-around
+        horizontalArrangement = Arrangement.SpaceAround,
+
+        // вертикально как в css space-around
     ) {
         BottomItem("Home",select == "home"){
             onSelect("home")
         }
         BottomItem("Coins" , select == "coins") {
             onSelect("coins")
+        }
+        BottomItem("Protocols" , select == "protocols") {
+            onSelect("protocols")
         }
     }
 }

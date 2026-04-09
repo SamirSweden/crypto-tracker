@@ -3,7 +3,6 @@ package com.example.elitedev.ui.theme.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -20,8 +19,6 @@ fun  BottomItem(
     onClick: () -> Unit
 ) {
     var color = if(isSelected) Color.White else Color.Transparent
-
-
 
 
     Box(

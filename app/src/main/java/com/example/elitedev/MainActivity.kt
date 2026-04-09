@@ -44,6 +44,7 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.screens.CoinsScreen
+import com.example.elitedev.ui.theme.screens.ProtocolsScreen
 import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
@@ -70,6 +71,9 @@ class MainActivity : ComponentActivity() {
 
                         composable("coins"){
                             CoinsScreen()
+                        }
+                        composable("protocols") {
+                            ProtocolsScreen()
                         }
                     }
 
@@ -127,6 +131,7 @@ fun MainScreen(navController: NavHostController) {
                                     tab = "coins"
                                 }
                             )
+                            KrakenBanner()
                         }
 
 
@@ -136,12 +141,18 @@ fun MainScreen(navController: NavHostController) {
                 "coins" -> {
                     CoinsScreen()
                 }
+
+                "protocols" -> {
+                    ProtocolsScreen()
+                }
             }
 
 
         }
     }
 }
+
+
 
 
 
@@ -177,6 +188,23 @@ fun GreetingPreview() {
     }
 }
 
+
+@Composable
+fun KrakenBanner(
+
+) {
+    AsyncImage(
+        model = "https://assets-cms.kraken.com/images/51n36hrp/facade/945a2d697164d783a255908648607db9a7ceb951-4942x3200.png?w=1536&fit=min",
+        contentDescription = "Kraken banner photo",
+        modifier = Modifier.fillMaxWidth()
+            .height(500.dp)
+            .padding(top = 10.dp , bottom = 10.dp),
+        onError = {error ->
+            println("img error ${error.result.throwable}")
+        },
+        contentScale = ContentScale.Crop
+        )
+}
 @Preview(showBackground = true)
 @Composable
 fun KrakenBannerPhoto() {
