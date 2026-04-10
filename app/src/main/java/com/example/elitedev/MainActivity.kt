@@ -190,9 +190,7 @@ fun GreetingPreview() {
 
 
 @Composable
-fun KrakenBanner(
-
-) {
+fun KrakenBanner() {
     AsyncImage(
         model = "https://assets-cms.kraken.com/images/51n36hrp/facade/945a2d697164d783a255908648607db9a7ceb951-4942x3200.png?w=1536&fit=min",
         contentDescription = "Kraken banner photo",
