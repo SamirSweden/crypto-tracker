@@ -47,11 +47,14 @@ import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.screens.CoinsScreen
 import com.example.elitedev.ui.theme.screens.LoginScreen
 import com.example.elitedev.ui.theme.screens.ProtocolsScreen
+import com.example.elitedev.ui.theme.screens.SplashScreen
 import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
         enableEdgeToEdge()
         setContent {
             EliteDevTheme(darkTheme = true) {
@@ -65,8 +68,17 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = "main"
+                        startDestination = "splash"
                     ) {
+
+                        composable ("splash"){
+                            SplashScreen {
+                                navController.navigate("main") {
+                                    popUpTo("splash"){inclusive = true}
+                                }
+                            }
+                        }
+
                         composable("main"){
                             MainScreen(navController)
                         }
@@ -83,6 +95,20 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+}
+
+
+@Composable
+fun App(navController: NavHostController){
+    var showSplash by remember { mutableStateOf(true) }
+
+    if (showSplash){
+        SplashScreen {
+            showSplash = false
+        }
+    } else {
+        MainScreen(navController)
     }
 }
 
