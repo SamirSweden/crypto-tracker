@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -48,6 +49,7 @@ import com.example.elitedev.ui.theme.screens.CoinsScreen
 import com.example.elitedev.ui.theme.screens.LoginScreen
 import com.example.elitedev.ui.theme.screens.ProtocolsScreen
 import com.example.elitedev.ui.theme.screens.SplashScreen
+import com.example.elitedev.ui.theme.screens.animatePulse
 import kotlinx.coroutines.selects.select
 
 class MainActivity : ComponentActivity() {
@@ -160,6 +162,7 @@ fun MainScreen(navController: NavHostController) {
                                 }
                             )
                             KrakenBanner()
+
                         }
 
 
@@ -172,6 +175,7 @@ fun MainScreen(navController: NavHostController) {
 
                 "protocols" -> {
                     ProtocolsScreen()
+
                 }
                 "login" -> {
                     KrakenBannerPhoto()
@@ -299,6 +303,49 @@ fun BlackFullWidthButton(
             fontFamily = FontFamily.Monospace
         )
     }
+}
+
+
+
+@Composable
+fun KrakenProBanner(){
+    Column(
+        modifier = Modifier.fillMaxWidth().padding(16.dp)
+    ) {
+        Text(
+            text = "Kraken Pro: Advanced Crypto Trading",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.ExtraBold,
+            color = Color.DarkGray,
+            modifier = Modifier.animatePulse()
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        AsyncImage(
+            model = "https://assets-cms.kraken.com/images/51n36hrp/facade/9633ead72d8f64b0fac8a503968b2e706dcb3028-1250x1000.png?w=1536&fit=min",
+            contentDescription = "Kraken crypto app",
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(260.dp)
+                .padding(bottom = 16.dp),
+            onError = {error ->
+                println("img error ${error.result.throwable}")
+            },
+            contentScale = ContentScale.Crop
+        )
+
+        Spacer(modifier = Modifier.height(32.dp))
+
+        Text(
+            text = "The Kraken Pro mobile app delivers all the trading, funding, earn and security features you love about the Kraken exchange in a mobile-first design. Get access to the tools and alerts you need to trade on the go.",
+            fontSize = 14.sp,
+            color = Color.White,
+            fontFamily = FontFamily.Monospace,
+            modifier = Modifier.background(Color.DarkGray)
+        )
+    }
+
 }
 
 

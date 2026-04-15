@@ -23,6 +23,7 @@ fun  BottomItem(
 
     Box(
         modifier = Modifier.background(
+
             color = color,
             shape = RoundedCornerShape(20.dp)
         )

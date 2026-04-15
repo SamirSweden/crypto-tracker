@@ -6,6 +6,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -107,6 +108,7 @@ fun LoginScreen(
                 keyboardType = KeyboardType.Email
             ),
             isError = errorMessage != null,
+            shape = RoundedCornerShape(16.dp),
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -184,7 +186,9 @@ fun LoginScreen(
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number
                     ),
-                    modifier = Modifier.fillMaxWidth()
+                    shape = RoundedCornerShape(16.dp),
+                    modifier = Modifier.fillMaxWidth(),
+
                 )
 
                 Spacer(modifier = Modifier.height(8.dp))
