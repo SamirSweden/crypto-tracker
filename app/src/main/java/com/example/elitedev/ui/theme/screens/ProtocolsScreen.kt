@@ -24,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import kotlin.math.min
 
 
 @Composable
@@ -53,6 +52,8 @@ fun ProtocolsScreen() {
         item { BannerProtocol() }
         item { BannerPhoto() }
         item { ProtocolCardsGrid() }
+
+
     }
 }
 
@@ -69,7 +70,7 @@ fun BannerProtocol() {
         Column {
 
             Text(
-                text = "Protocols —",
+                text = "— Protocols —",
                 style = MaterialTheme.typography.titleLarge,
                 color = Color.White
             )
@@ -172,3 +173,10 @@ fun ProtocolCardsGrid() {
         }
     }
 }
+
+
+
+
+
+
+

@@ -37,6 +37,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -44,6 +45,7 @@ import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.screens.CoinsScreen
+import com.example.elitedev.ui.theme.screens.LoginScreen
 import com.example.elitedev.ui.theme.screens.ProtocolsScreen
 import kotlinx.coroutines.selects.select
 
@@ -144,6 +146,15 @@ fun MainScreen(navController: NavHostController) {
 
                 "protocols" -> {
                     ProtocolsScreen()
+                }
+                "login" -> {
+                    KrakenBannerPhoto()
+                    Spacer(modifier = Modifier.height(32.dp))
+                    LoginScreen (
+                        onSuccess = {
+                            navController.navigate("coins")
+                        }
+                    )
                 }
             }
 
