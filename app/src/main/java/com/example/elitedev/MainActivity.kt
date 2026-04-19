@@ -89,8 +89,10 @@ class MainActivity : ComponentActivity() {
                             CoinsScreen()
                         }
                         composable("protocols") {
-                            ProtocolsScreen()
+                            ProtocolsScreen(navController)
                         }
+                        composable ("coins"){ CoinsScreen() }
+
                     }
 
 
@@ -173,10 +175,7 @@ fun MainScreen(navController: NavHostController) {
                     CoinsScreen()
                 }
 
-                "protocols" -> {
-                    ProtocolsScreen()
 
-                }
                 "login" -> {
                     KrakenBannerPhoto()
                     Spacer(modifier = Modifier.height(32.dp))
@@ -342,7 +341,6 @@ fun KrakenProBanner(){
             fontSize = 14.sp,
             color = Color.White,
             fontFamily = FontFamily.Monospace,
-            modifier = Modifier.background(Color.DarkGray)
         )
     }
 

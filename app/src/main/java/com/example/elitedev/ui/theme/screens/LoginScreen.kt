@@ -15,7 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
@@ -61,7 +60,7 @@ fun LoginScreen(
 
 
     suspend fun sendCodeToEmail(email: String , code: String): Boolean {
-        delay(2000)
+        delay(3000)
 
         Toast.makeText(
             context,

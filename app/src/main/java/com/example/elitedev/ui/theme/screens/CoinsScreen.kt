@@ -13,7 +13,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.elitedev.ui.theme.components.CoinItem
 import androidx.compose.foundation.lazy.items
 import com.example.elitedev.CoinsViewModel
-import com.example.elitedev.ui.theme.components.BottomNavbar
 
 @Composable
 fun CoinsScreen(viewModel: CoinsViewModel = viewModel()) {
