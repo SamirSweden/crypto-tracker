@@ -45,6 +45,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.example.elitedev.ui.theme.components.BottomNavbar
+import com.example.elitedev.ui.theme.components.TradingViewChart
+import com.example.elitedev.ui.theme.screens.ChartScreen
 import com.example.elitedev.ui.theme.screens.CoinsScreen
 import com.example.elitedev.ui.theme.screens.LoginScreen
 import com.example.elitedev.ui.theme.screens.ProtocolsScreen
@@ -91,8 +93,12 @@ class MainActivity : ComponentActivity() {
                         composable("protocols") {
                             ProtocolsScreen(navController)
                         }
-                        composable ("coins"){ CoinsScreen() }
+//                        composable ("coins"){ CoinsScreen() }
 
+                        composable ("chart"){
+                            ChartScreen()
+                            TradingViewChart()
+                        }
                     }
 
 
@@ -181,7 +187,7 @@ fun MainScreen(navController: NavHostController) {
                     Spacer(modifier = Modifier.height(32.dp))
                     LoginScreen (
                         onSuccess = {
-                            navController.navigate("coins")
+                            navController.navigate("chart")
                         }
                     )
                 }
