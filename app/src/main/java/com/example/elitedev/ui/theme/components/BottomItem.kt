@@ -18,7 +18,7 @@ fun  BottomItem(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
-    var color = if(isSelected) Color.White else Color.Transparent
+    var color = if(isSelected) Color.Cyan else Color.Transparent
 
 
     Box(

@@ -177,6 +177,10 @@ fun MainScreen(navController: NavHostController) {
                     CoinsScreen()
                 }
 
+                "protocols" -> {
+                    ProtocolsScreen(navController)
+                }
+
 
                 "login" -> {
                     KrakenBannerPhoto()
