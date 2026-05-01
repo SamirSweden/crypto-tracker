@@ -13,21 +13,30 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.HeadsetMic
+import androidx.compose.material.icons.filled.Layers
+import androidx.compose.material.icons.filled.Shield
+import androidx.compose.material.icons.filled.TrendingUp
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -79,7 +88,10 @@ fun ProtocolsScreen(navController: NavController) {
         item { BannerProtocol() }
         item { BannerPhoto() }
         item { ProtocolCardsGrid() }
-        item{ WhySection() }
+        item{
+            HeadingWhyCard()
+            WhySection()
+        }
 
 
 
@@ -205,18 +217,31 @@ fun ProtocolCardsGrid() {
 }
 
 
+@Composable
+fun HeadingWhyCard(){
+    Text(
+        text = "Why protocols choose Kraken 360",
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp , vertical = 8.dp),
+        fontFamily = FontFamily.Monospace,
+        fontWeight = FontWeight.Bold,
+        color = Color.White,
+        fontSize = 18.sp,
+        textAlign = TextAlign.Start
+    )
+}
 
 data class WhyItem(
     val id: Int,
     val title: String,
-    val description: String
+    val description: String,
+    val icon: ImageVector
 )
 
 val whyListData = listOf(
-    WhyItem(1,"Scale", "Built-in distribution with millions of users and institutional liquidity"),
-    WhyItem(2,"Security and compliance", "Resilient operations and unmatched security with a global regulatory footprint.") ,
-    WhyItem(3,"Dedicated 24/7/365 support", "Around-the-clock support complemented by dedicated relationship managers focused on institutional clients."),
-    WhyItem(4,"Staking", "Transparent staking infrastructure designed for institutional participation and seamless reward collection.")
+    WhyItem(1,"Scale", "Built-in distribution with millions of users and institutional liquidity", icon = Icons.Default.TrendingUp),
+    WhyItem(2,"Security and compliance", "Resilient operations and unmatched security with a global regulatory footprint.", icon = Icons.Default.Shield),
+    WhyItem(3,"Dedicated 24/7/365 support", "Around-the-clock support complemented by dedicated relationship managers focused on institutional clients.", icon = Icons.Default.HeadsetMic),
+    WhyItem(4,"Staking", "Transparent staking infrastructure designed for institutional participation and seamless reward collection.", icon = Icons.Default.Layers)
 )
 
 @Composable
@@ -228,7 +253,8 @@ fun WhySection(){
         whyListData.forEach { item ->
             WhyCard(
                 title = item.title,
-                description = item.description
+                description = item.description,
+                icon = item.icon
             )
         }
     }
@@ -238,7 +264,8 @@ fun WhySection(){
 @Composable
 fun WhyCard(
     title: String,
-    description: String
+    description: String,
+    icon: ImageVector
 ){
     Card(
         modifier = Modifier
@@ -246,7 +273,7 @@ fun WhyCard(
             .padding(horizontal = 16.dp , vertical = 8.dp),
         shape = RoundedCornerShape(32.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFF1E1E1E),
+            containerColor = Color(0xFF111111),
             contentColor = Color.White
         ),
         border = BorderStroke(1.dp , Color.DarkGray)
@@ -257,6 +284,14 @@ fun WhyCard(
                 .fillMaxWidth(),
             verticalArrangement = Arrangement.spacedBy(12.dp) // space between h1 and p
         ) {
+
+            Icon(
+                imageVector = icon,
+                contentDescription = null,
+                tint = Color(0xFF8C52FF),
+                modifier = Modifier.size(32.dp)
+            )
+
             Text(
                 text = title,
                 fontFamily = FontFamily.Monospace,
@@ -270,6 +305,7 @@ fun WhyCard(
                 lineHeight = 24.sp,
                 color = Color.LightGray
             )
+
         }
     }
 }
