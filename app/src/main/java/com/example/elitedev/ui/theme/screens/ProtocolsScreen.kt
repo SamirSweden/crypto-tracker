@@ -1,5 +1,6 @@
 package com.example.elitedev.ui.theme.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -13,9 +14,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -75,6 +81,9 @@ fun ProtocolsScreen(navController: NavController) {
         item { BannerProtocol() }
         item { BannerPhoto() }
         item { ProtocolCardsGrid() }
+        item{ WhySection() }
+
+
 
     }
 }
@@ -198,6 +207,74 @@ fun ProtocolCardsGrid() {
 }
 
 
+
+data class WhyItem(
+    val id: Int,
+    val title: String,
+    val description: String
+)
+
+val whyListData = listOf(
+    WhyItem(1,"Scale", "Built-in distribution with millions of users and institutional liquidity"),
+    WhyItem(2,"Security and compliance", "Resilient operations and unmatched security with a global regulatory footprint.") ,
+    WhyItem(3,"Dedicated 24/7/365 support", "Around-the-clock support complemented by dedicated relationship managers focused on institutional clients."),
+    WhyItem(4,"Staking", "Transparent staking infrastructure designed for institutional participation and seamless reward collection.")
+)
+
+@Composable
+fun WhySection(){
+    Column(
+        verticalArrangement = Arrangement.spacedBy(24.dp),
+        modifier = Modifier.padding(16.dp)
+    ) {
+        whyListData.forEach { item ->
+            WhyCard(
+                title = item.title,
+                description = item.description
+            )
+        }
+    }
+}
+
+
+@Composable
+fun WhyCard(
+    title: String,
+    description: String
+){
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp , vertical = 8.dp),
+        shape = RoundedCornerShape(32.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF1E1E1E),
+            contentColor = Color.White
+        ),
+        border = BorderStroke(1.dp , Color.DarkGray)
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(24.dp)
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(12.dp) // space between h1 and p
+        ) {
+            Text(
+                text = title,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp
+            )
+            Text(
+                text = description,
+                fontFamily = FontFamily.Default,
+                fontSize = 14.sp,
+                lineHeight = 24.sp,
+                color = Color.LightGray
+            )
+        }
+    }
+}
 
 
 
