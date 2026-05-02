@@ -29,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -56,31 +57,42 @@ fun ProtocolsScreen(navController: NavController) {
     ) {
 
             stickyHeader {
-                Row(
+                Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .background(Color.Black),
-                    horizontalArrangement = Arrangement.SpaceAround
-                ) {
-                    Text(
-                        text = "Kraken",
-                        fontFamily = FontFamily.Monospace,
-                        fontSize = 30.sp,
-                        color = Color.White
-                    )
-                    Button(
-                        onClick = {},
-                        modifier = Modifier.padding(bottom = 16.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White,
-                            contentColor = Color.Black
-                        )
+                        .padding(horizontal = 12.dp , vertical = 8.dp)
+                ){
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(24.dp))
+                            .background(Color.Black.copy(alpha = 0.7f))
+                            .padding(horizontal = 16.dp, vertical = 12.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "Panel",
-                            fontFamily = FontFamily.Default,
-                            fontSize = 18.sp
+                            text = "Kraken",
+                            fontSize = 30.sp,
+                            color = Color.White,
+                            fontWeight = FontWeight.Black,
+                            fontFamily = FontFamily.Monospace
                         )
+
+                        Button(
+                            onClick = {
+                                navController.navigate("/dashboard")
+                            },
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.White,
+                                contentColor = Color.Black
+                            )
+                        ) {
+                            Text(
+                                text = "Dashboard",
+                                fontSize = 15.sp,
+                            )
+                        }
                     }
                 }
             }
