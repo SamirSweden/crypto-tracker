@@ -45,6 +45,7 @@ import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.components.TradingViewChart
 import com.example.elitedev.ui.theme.screens.ChartScreen
 import com.example.elitedev.ui.theme.screens.CoinsScreen
+import com.example.elitedev.ui.theme.screens.DashboardScreen
 import com.example.elitedev.ui.theme.screens.LoginScreen
 import com.example.elitedev.ui.theme.screens.ProtocolsScreen
 import com.example.elitedev.ui.theme.screens.SplashScreen
@@ -95,6 +96,12 @@ class MainActivity : ComponentActivity() {
                             ChartScreen()
                             TradingViewChart()
                         }
+
+                        composable ("dashboard"){
+                            DashboardScreen()
+                        }
+
+
                     }
 
 
@@ -180,6 +187,7 @@ fun MainScreen(navController: NavHostController) {
                 "protocols" -> {
                     ProtocolsScreen(navController)
                 }
+
 
 
                 "login" -> {

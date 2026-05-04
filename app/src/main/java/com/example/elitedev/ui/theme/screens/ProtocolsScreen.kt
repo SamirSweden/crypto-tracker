@@ -31,6 +31,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -66,7 +67,7 @@ fun ProtocolsScreen(navController: NavController) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(24.dp))
-                            .background(Color.Black.copy(alpha = 0.7f))
+                            .background(Color.Black.copy(alpha = 0.4f))
                             .padding(horizontal = 16.dp, vertical = 12.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically
@@ -81,7 +82,7 @@ fun ProtocolsScreen(navController: NavController) {
 
                         Button(
                             onClick = {
-                                navController.navigate("/dashboard")
+                                navController.navigate("dashboard")
                             },
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = Color.White,
