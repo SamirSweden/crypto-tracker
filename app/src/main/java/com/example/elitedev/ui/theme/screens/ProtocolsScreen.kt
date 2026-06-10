@@ -61,13 +61,14 @@ fun ProtocolsScreen(navController: NavController) {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 12.dp , vertical = 8.dp)
+                        .background(Color.Transparent)
+                        .padding(horizontal = 12.dp , vertical = 8.dp),
                 ){
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clip(RoundedCornerShape(24.dp))
-                            .background(Color.Black.copy(alpha = 0.4f))
+                            .background(Color.Black)
                             .padding(horizontal = 16.dp, vertical = 12.dp),
                         horizontalArrangement = Arrangement.SpaceBetween,
                         verticalAlignment = Alignment.CenterVertically

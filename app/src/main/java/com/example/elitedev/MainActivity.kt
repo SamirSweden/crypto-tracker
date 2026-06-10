@@ -41,6 +41,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
+import com.example.elitedev.ui.theme.components.BannerVideo
 import com.example.elitedev.ui.theme.components.BottomNavbar
 import com.example.elitedev.ui.theme.components.TradingViewChart
 import com.example.elitedev.ui.theme.screens.ChartScreen
@@ -172,6 +173,12 @@ fun MainScreen(navController: NavHostController) {
                                 }
                             )
                             KrakenBanner()
+                            BannerVideo(
+                                onPlayClick = {
+                                    tab = ""
+                                }
+                            )
+
 
                         }
 
@@ -204,6 +211,8 @@ fun MainScreen(navController: NavHostController) {
         }
     }
 }
+
+
 
 
 
