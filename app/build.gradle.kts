@@ -43,6 +43,8 @@ dependencies {
     implementation("androidx.media3:media3-exoplayer:1.5.1")
     implementation("androidx.media3:media3-ui:1.5.1")
 
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.3")
 
     implementation("com.google.accompanist:accompanist-placeholder-material:0.30.1")
     implementation("io.coil-kt:coil-compose:2.5.0")
