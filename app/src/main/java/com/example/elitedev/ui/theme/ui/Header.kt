@@ -47,15 +47,7 @@ fun Header (
                 .width(120.dp)
                 .height(48.dp)
                 .clip(RoundedCornerShape(16.dp))
-                .background(
-                    Brush.horizontalGradient(
-                        colors = listOf(
-                            Color(0xFFFFD600),
-                            Color(0xFFFFA000),
-                            Color.Black
-                        )
-                    )
-                )
+                .background(Color.White)
                 .clickable {
                     onLoginClick()
                 },
@@ -63,7 +55,7 @@ fun Header (
         ) {
             Text(
                 text = "Login",
-                color = Color.White,
+                color = Color.Black,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
