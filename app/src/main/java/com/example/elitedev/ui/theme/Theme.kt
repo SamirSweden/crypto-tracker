@@ -15,14 +15,3 @@ private val DarkColors = darkColorScheme(
     onSurface = androidx.compose.ui.graphics.Color.White
 )
 
-@Composable
-fun EliteDevTheme(
-    darkTheme: Boolean = true,
-    content: @Composable () -> Unit
-) {
-    MaterialTheme(
-        colorScheme = DarkColors,
-        typography = Typography,
-        content = content
-    )
-}
